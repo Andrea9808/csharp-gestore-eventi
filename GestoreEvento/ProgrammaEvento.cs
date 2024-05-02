@@ -28,6 +28,11 @@ namespace GestoreEvento
             Eventi = new List<Evento>();
         }
 
+        //aggiungerà l'evento nella lista
+        public void AggiungiEvento(Evento evento)
+        {
+            Eventi.Add(evento);
+        }
 
 
     }
