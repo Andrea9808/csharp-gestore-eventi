@@ -72,5 +72,17 @@ namespace GestoreEvento
             Eventi.Clear();
         }
 
+        //ritorna la stringa eventi in formato {
+        public string ElencoDataTitolo()
+        {
+            string elencoEventi = "Nome programma evento:";
+
+            foreach (Evento evento in Eventi)
+            {
+                elencoEventi += evento.ToString();
+            }
+
+            return elencoEventi;
+        }
     }
 }
