@@ -34,6 +34,22 @@ namespace GestoreEvento
             Eventi.Add(evento);
         }
 
+        //controlla se gli eventi sono stanziati nella stessa data
+        public List<Evento> EventiInData(DateTime data)
+        {
+            List<Evento> eventiInData = new List<Evento>();
+
+            foreach (Evento evento in Eventi)
+            {
+                if (evento.Data.Date == data.Date)
+                {
+                    eventiInData.Add(evento);
+                }
+            }
+
+            return eventiInData;
+        }
+
 
     }
 }
