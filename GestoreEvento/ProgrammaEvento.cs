@@ -60,6 +60,11 @@ namespace GestoreEvento
             }
         }
 
+        //calcola quanti eventi ci sono nella lista
+        public int ContaEventi()
+        {
+            return Eventi.Count;
+        }
 
     }
 }
