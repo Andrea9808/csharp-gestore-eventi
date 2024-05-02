@@ -145,6 +145,14 @@
                 Console.WriteLine();
                 Console.WriteLine($"Il numero di eventi nel programma è  {programmaEventi.ContaEventi()}");
 
+
+                //STAMPA GLI ELEMENTI CHE HANNO LA STESSA DATA (EventiInData())
+                Console.Write("Inserisci una data (gg/mm/yyyy): ");
+                DateTime dataInserita = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
+                List<Evento> eventiInData = programmaEventi.EventiInData(dataInserita);
+                string elencoEventiInData = programmaEventi.ElencoDataTitolo(eventiInData);
+                Console.WriteLine(elencoEventiInData);
+
             }
 
             catch (Exception e)

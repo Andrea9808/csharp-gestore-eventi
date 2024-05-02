@@ -74,13 +74,13 @@ namespace GestoreEvento
         }
 
         //ritorna la stringa eventi in formato {
-        public string ElencoDataTitolo()
+        public string ElencoDataTitolo(List<Evento> eventi)
         {
             string elencoEventi = "Nome programma evento:";
 
             foreach (Evento evento in Eventi)
             {
-                elencoEventi += evento.ToString();
+                elencoEventi += $"{evento.Titolo} - {evento.Data.ToString("dd/MM/yyyy")}";
             }
 
             return elencoEventi;
