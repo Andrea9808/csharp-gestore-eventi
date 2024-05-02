@@ -98,6 +98,7 @@
                 for (int i = 0; i < quantitàEventi; i++)
                 {
                     Console.WriteLine($"Inserisci il nome del {i + 1}' evento ");
+                    string evento = Console.ReadLine();
                 }
             }
             catch (Exception e)
