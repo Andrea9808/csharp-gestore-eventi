@@ -50,15 +50,6 @@ namespace GestoreEvento
             return eventiInData;
         }
 
-        //stampa l'evento
-        public static void StampaEvento(List<Evento> listaEventi)
-        {
-            Console.WriteLine("Lista degli Eventi:");
-            foreach (Evento evento in listaEventi)
-            {
-                Console.WriteLine($"Titolo: {evento.Titolo} \n Data: {evento.Data.ToString("dd/MM/yyyy")}\n Capienza: {evento.CapienzaEvento}\n Posti Prenotati: {evento.NumeroPostiPrenotati}");
-            }
-        }
 
         //calcola quanti eventi ci sono nella lista
         public int ContaEventi()
@@ -70,6 +61,16 @@ namespace GestoreEvento
         public void RimuoviEvento()
         {
             Eventi.Clear();
+        }
+
+        //stampa l'evento
+        public static void StampaEvento(List<Evento> listaEventi)
+        {
+            Console.WriteLine("Lista degli Eventi:");
+            foreach (Evento evento in listaEventi)
+            {
+                Console.WriteLine($"Titolo: {evento.Titolo} , Data: {evento.Data.ToString("dd/MM/yyyy")} , Capienza: {evento.CapienzaEvento}");
+            }
         }
 
         //ritorna la stringa eventi in formato {

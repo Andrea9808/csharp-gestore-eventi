@@ -2,6 +2,7 @@
 {
     internal class Program
     {
+
         static void Main(string[] args)
         {
             //EVENTO
@@ -126,6 +127,7 @@
                         }
 
                         programmaEventi.AggiungiEvento(new Evento(evento, data, capienzaEvento));
+                        
                     }
                     
                     catch (Exception ex)
@@ -134,7 +136,10 @@
                         i--;
                     }
                 }
+
+                ProgrammaEvento.StampaEvento(programmaEventi.Eventi);
             }
+
             catch (Exception e)
             {
                 Console.WriteLine($"Si è verificato un errore: {e.Message}");
