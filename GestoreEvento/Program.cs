@@ -5,6 +5,7 @@
 
         static void Main(string[] args)
         {
+            //MILESTONE 1 e 2
             //EVENTO
             try
             {
@@ -77,16 +78,86 @@
 
 
 
-
-            //PROGRAMMA EVENTO
+            //MILESTONE 2,3, BONUS
+            //try generale
             try
             {
+
+                //BONUS
+                Conferenza nuovaConferenza = null;
+                try
+                {
+                    Console.WriteLine("---------BONUS---------");
+                    Console.WriteLine("Aggiungiamo anche una conferenza");
+
+                    Console.WriteLine();
+                    Console.WriteLine($"Inserisci il nome della conferenza:");
+                    string titoloConferenza = Console.ReadLine();
+
+                    //se il campo è nullo
+                    if (String.IsNullOrEmpty(titoloConferenza))
+                    {
+                        throw new Exception("Il campo non può essere vuoto");
+                    }
+
+
+                    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+                    DateTime data = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
+
+
+                    //se la data è minore di oggi
+                    if (data < DateTime.Now)
+                    {
+                        throw new Exception("La data non può essere minore di oggi");
+                    }
+
+                    Console.Write("Inserisci il numero di posti totali: ");
+                    int capienzaConferenza = int.Parse(Console.ReadLine());
+
+                    //se la capienza è negativa
+                    if (capienzaConferenza <= 0)
+                    {
+                        throw new Exception("La capienza deve essere positiva");
+                    }
+
+                    Console.Write("Inserisci il relatore della conferenza: ");
+                    string relatore = Console.ReadLine();
+
+                    //se il campo è vuoto
+                    if (String.IsNullOrEmpty(relatore))
+                    {
+                        throw new Exception("Il campo non può essere vuoto");
+                    }
+
+                    Console.Write("Inserisci il prezzo del biglietto in €: ");
+                    double prezzoBiglietto = double.Parse(Console.ReadLine());
+
+                    //se il prezzo è negativo
+                    if (prezzoBiglietto <= 0)
+                    {
+                        throw new Exception("Il prezzo del biglietto deve essere positivo.");
+                    }
+
+                    nuovaConferenza = new Conferenza(titoloConferenza, data, capienzaConferenza, relatore, prezzoBiglietto);
+
+
+                }
+                catch (Exception e)
+                {
+                    Console.WriteLine($"Si è verificato un errore: {e.Message}. Riprova!");
+                }
+
+
+
+                //PROGRAMMA EVENTO (MILESTONE 2,3)
+
                 Console.WriteLine($"Inserisci il nome del tuo programma evento:");
                 string titoloProgramma = Console.ReadLine();
 
                 Console.WriteLine($"Quanti eventi vuoi aggiungere:");
                 int quantitàEventi = int.Parse(Console.ReadLine());
 
+                //se il valore è negativo
                 if (quantitàEventi < 0)
                 {
                     throw new Exception("Non puoi inserire valori negativi");
@@ -94,6 +165,7 @@
 
                 ProgrammaEvento programmaEventi = new ProgrammaEvento(titoloProgramma);
 
+                //ciclo per il numero inserito
                 for (int i = 0; i < quantitàEventi; i++)
                 {
                     try
@@ -127,9 +199,10 @@
                         }
 
                         programmaEventi.AggiungiEvento(new Evento(evento, data, capienzaEvento));
-                        
+                        programmaEventi.AggiungiEvento(nuovaConferenza);
+
                     }
-                    
+
                     catch (Exception e)
                     {
                         Console.WriteLine($"Si è verificato un errore: {e.Message}. Riprova!");
@@ -137,7 +210,7 @@
                     }
                 }
 
-                
+
 
                 //STAMPA NUMERO ELEMENTI(ContaEventi())
                 Console.WriteLine();
@@ -163,15 +236,12 @@
                     programmaEventi.RimuoviEvento();
                     Console.WriteLine("Tutti gli eventi sono stati eliminati.");
                 }
-
-
             }
 
             catch (Exception e)
             {
                 Console.WriteLine($"Si è verificato un errore: {e.Message}");
             }
-
 
         }
     }

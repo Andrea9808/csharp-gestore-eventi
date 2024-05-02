@@ -128,7 +128,7 @@ namespace GestoreEvento
         {
             string data = Data.ToString("dd/MM/yyyy");
 
-            return $"{data} - {Titolo}";
+            return $"Data: {data} - Titolo Evento: {Titolo}";
         }
 
 

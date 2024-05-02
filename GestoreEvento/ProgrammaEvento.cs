@@ -80,7 +80,8 @@ namespace GestoreEvento
 
             foreach (Evento evento in Eventi)
             {
-                elencoEventi += $"\n{evento.Titolo} - {evento.Data.ToString("dd/MM/yyyy")}\n";
+                elencoEventi += $"Nome programma evento: {evento.ToString()}\n";
+                
             }
 
             return elencoEventi;
