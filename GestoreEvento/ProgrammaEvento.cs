@@ -66,7 +66,7 @@ namespace GestoreEvento
         //stampa l'evento
         public static void StampaEvento(List<Evento> listaEventi)
         {
-            Console.WriteLine("Lista degli Eventi:");
+            Console.WriteLine("Ecco il tuo programma eventi:");
             foreach (Evento evento in listaEventi)
             {
                 Console.WriteLine($"Titolo: {evento.Titolo} , Data: {evento.Data.ToString("dd/MM/yyyy")} , Capienza: {evento.CapienzaEvento}");
@@ -80,7 +80,7 @@ namespace GestoreEvento
 
             foreach (Evento evento in Eventi)
             {
-                elencoEventi += $"{evento.Titolo} - {evento.Data.ToString("dd/MM/yyyy")}";
+                elencoEventi += $"\n{evento.Titolo} - {evento.Data.ToString("dd/MM/yyyy")}\n";
             }
 
             return elencoEventi;

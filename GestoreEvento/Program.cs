@@ -130,28 +130,40 @@
                         
                     }
                     
-                    catch (Exception ex)
+                    catch (Exception e)
                     {
-                        Console.WriteLine($"Si è verificato un errore: {ex.Message}. Riprova!");
+                        Console.WriteLine($"Si è verificato un errore: {e.Message}. Riprova!");
                         i--;
                     }
                 }
+
+                
+
+                //STAMPA NUMERO ELEMENTI(ContaEventi())
+                Console.WriteLine();
+                Console.WriteLine($"Il numero di eventi nel programma è  {programmaEventi.ContaEventi()}");
 
                 //STAMPA ELEMENTI(StampaEvento())
                 Console.WriteLine();
                 ProgrammaEvento.StampaEvento(programmaEventi.Eventi);
 
-                //STAMPA ELEMENTI(ContaEventi())
-                Console.WriteLine();
-                Console.WriteLine($"Il numero di eventi nel programma è  {programmaEventi.ContaEventi()}");
-
-
                 //STAMPA GLI ELEMENTI CHE HANNO LA STESSA DATA (EventiInData())
-                Console.Write("Inserisci una data (gg/mm/yyyy): ");
+                Console.Write("Inserisci una data per sapere che eventi ci saranno (gg/mm/yyyy): ");
                 DateTime dataInserita = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
                 List<Evento> eventiInData = programmaEventi.EventiInData(dataInserita);
                 string elencoEventiInData = programmaEventi.ElencoDataTitolo(eventiInData);
                 Console.WriteLine(elencoEventiInData);
+
+                //ELIMINA TUTTU GLI EVENTI(RimuoviEvento())
+                Console.WriteLine("Vuoi eliminare tutti i tuoi eventi? (si/no)");
+                string risposta = Console.ReadLine();
+
+                if (risposta == "si")
+                {
+                    programmaEventi.RimuoviEvento();
+                    Console.WriteLine("Tutti gli eventi sono stati eliminati.");
+                }
+
 
             }
 
