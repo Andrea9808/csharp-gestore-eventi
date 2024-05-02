@@ -4,7 +4,7 @@
     {
         static void Main(string[] args)
         {
-
+            //EVENTO
             try
             {
                 Console.WriteLine("Inserisci i dettagli del nuovo evento:");
@@ -72,8 +72,11 @@
             }
             catch (Exception e)
             {
-                Console.WriteLine($"Si è verificato un errore: {e}");
+                Console.WriteLine($"Si è verificato un errore: {e.Message}");
             }
+
+
+
         }
     }
 }

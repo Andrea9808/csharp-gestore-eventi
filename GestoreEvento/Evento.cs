@@ -131,6 +131,7 @@ namespace GestoreEvento
             return $"{data} - {Titolo}";
         }
 
+
     }
 
 
