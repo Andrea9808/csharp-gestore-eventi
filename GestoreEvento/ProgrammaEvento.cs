@@ -66,5 +66,7 @@ namespace GestoreEvento
             return Eventi.Count;
         }
 
+     
+
     }
 }
