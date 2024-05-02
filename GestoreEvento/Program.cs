@@ -137,7 +137,14 @@
                     }
                 }
 
+                //STAMPA ELEMENTI(StampaEvento())
+                Console.WriteLine();
                 ProgrammaEvento.StampaEvento(programmaEventi.Eventi);
+
+                //STAMPA ELEMENTI(ContaEventi())
+                Console.WriteLine();
+                Console.WriteLine($"Il numero di eventi nel programma è  {programmaEventi.ContaEventi()}");
+
             }
 
             catch (Exception e)
