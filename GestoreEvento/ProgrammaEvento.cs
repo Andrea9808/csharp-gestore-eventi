@@ -66,7 +66,11 @@ namespace GestoreEvento
             return Eventi.Count;
         }
 
-     
+        //toglierà tutti gli eventi nella lista
+        public void RimuoviEvento()
+        {
+            Eventi.Clear();
+        }
 
     }
 }
