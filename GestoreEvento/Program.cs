@@ -99,6 +99,27 @@
                 {
                     Console.WriteLine($"Inserisci il nome del {i + 1}' evento ");
                     string evento = Console.ReadLine();
+
+                    if (String.IsNullOrEmpty(evento))
+                    {
+                        throw new Exception("Il campo non può essere vuoto");
+                    }
+
+                    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+                    DateTime data = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
+
+                    if (data < DateTime.Now)
+                    {
+                        throw new Exception("La data non può essere minore di oggi");
+                    }
+
+                    Console.Write("Inserisci il numero di posti totali: ");
+                    int capienzaEvento = int.Parse(Console.ReadLine());
+
+                    if (capienzaEvento <= 0)
+                    {
+                        throw new Exception("La capienza deve essere positiva");
+                    }
                 }
             }
             catch (Exception e)
