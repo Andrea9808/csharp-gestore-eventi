@@ -50,6 +50,16 @@ namespace GestoreEvento
             return eventiInData;
         }
 
+        //stampa l'evento
+        public static void StampaEvento(List<Evento> listaEventi)
+        {
+            Console.WriteLine("Lista degli Eventi:");
+            foreach (Evento evento in listaEventi)
+            {
+                Console.WriteLine($"Titolo: {evento.Titolo} \n Data: {evento.Data.ToString("dd/MM/yyyy")}\n Capienza: {evento.CapienzaEvento}\n Posti Prenotati: {evento.NumeroPostiPrenotati}");
+            }
+        }
+
 
     }
 }
