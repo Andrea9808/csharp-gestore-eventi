@@ -77,6 +77,34 @@
 
 
 
+
+
+            //PROGRAMMA EVENTO
+            try
+            {
+                Console.WriteLine($"Inserisci il nome del tuo programma evento:");
+                string titoloProgramma = Console.ReadLine();
+
+                Console.WriteLine($"Quanti eventi vuoi aggiungere:");
+                int quantitàEventi = int.Parse(Console.ReadLine());
+
+                if (quantitàEventi < 0)
+                {
+                    throw new Exception("Non puoi inserire valori negativi");
+                }
+
+                ProgrammaEvento programmaEventi = new ProgrammaEvento(titoloProgramma);
+
+                for (int i = 0; i < quantitàEventi; i++)
+                {
+                    Console.WriteLine($"Inserisci il nome del {i + 1}' evento ");
+                }
+            }
+            catch (Exception e)
+            {
+                Console.WriteLine($"Si è verificato un errore: {e.Message}");
+            }
+
         }
     }
 }
