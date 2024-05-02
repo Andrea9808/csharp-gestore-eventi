@@ -101,8 +101,8 @@
                     }
 
 
-                    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
-                    DateTime data = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
+                    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy, ora HH:mm): ");
+                    DateTime data = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy HH:mm", null);
 
 
                     //se la data è minore di oggi

@@ -56,7 +56,7 @@ namespace GestoreEvento
         public override string ToString()
         {
             
-            return $"Nome Conferenza: Data: {Data.ToString("dd/MM/yyyy")} - Titolo Conferenza {Titolo} - Relatore: {Relatore} - Prezzo {Prezzo.ToString("0.00")} euro";
+            return $"Nome Conferenza: Data e ora: {DataOraFormattata()} - Titolo Conferenza {Titolo} - Relatore: {Relatore} - Prezzo {PrezzoFormattato()}";
         }
 
     }
