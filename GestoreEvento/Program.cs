@@ -9,22 +9,17 @@
             {
                 Console.WriteLine("Inserisci i dettagli del nuovo evento:");
 
-
                 //titolo
                 Console.Write("Inserisci il nome dell'evento: ");
                 string titolo = Console.ReadLine();
-
 
                 //data
                 Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
                 DateTime data = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
 
-
                 //capienza
                 Console.Write("Inserisci il numero di posti totali: ");
                 int capienzaEvento = int.Parse(Console.ReadLine());
-
-                
 
                 Evento nuovoEvento = new Evento(titolo, data, capienzaEvento);
 
@@ -33,6 +28,7 @@
                 string risposta = Console.ReadLine();
 
                 Console.WriteLine();
+
                 if (risposta == "si")
                 {
                     //posti prenotati
@@ -48,6 +44,7 @@
                 }
 
                 Console.WriteLine();
+
                 while (risposta == "si")
                 {
                     Console.WriteLine("Vuoi disdire dei posti? (si/no): ");
@@ -68,12 +65,13 @@
                         Console.WriteLine($"Numero di posti disponibili: {nuovoEvento.CapienzaEvento - nuovoEvento.NumeroPostiPrenotati}");
                     }
                 }
-
             }
             catch (Exception e)
             {
                 Console.WriteLine($"Si è verificato un errore: {e.Message}");
             }
+
+
 
 
 
@@ -97,28 +95,43 @@
 
                 for (int i = 0; i < quantitàEventi; i++)
                 {
-                    Console.WriteLine($"Inserisci il nome del {i + 1}' evento ");
-                    string evento = Console.ReadLine();
-
-                    if (String.IsNullOrEmpty(evento))
+                    try
                     {
-                        throw new Exception("Il campo non può essere vuoto");
+                        Console.WriteLine();
+                        Console.Write($"Inserisci il nome del {i + 1}' evento: ");
+                        string evento = Console.ReadLine();
+
+                        //se il campo è vuoto
+                        if (String.IsNullOrEmpty(evento))
+                        {
+                            throw new Exception("Il campo non può essere vuoto");
+                        }
+
+                        Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
+                        DateTime data = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
+
+                        //se la data è al passato
+                        if (data < DateTime.Now)
+                        {
+                            throw new Exception("La data non può essere minore di oggi");
+                        }
+
+                        Console.Write("Inserisci il numero di posti totali: ");
+                        int capienzaEvento = int.Parse(Console.ReadLine());
+
+                        //se la capienza è negativa
+                        if (capienzaEvento <= 0)
+                        {
+                            throw new Exception("La capienza deve essere positiva");
+                        }
+
+                        programmaEventi.AggiungiEvento(new Evento(evento, data, capienzaEvento));
                     }
-
-                    Console.Write("Inserisci la data dell'evento (gg/mm/yyyy): ");
-                    DateTime data = DateTime.ParseExact(Console.ReadLine(), "dd/MM/yyyy", null);
-
-                    if (data < DateTime.Now)
+                    
+                    catch (Exception ex)
                     {
-                        throw new Exception("La data non può essere minore di oggi");
-                    }
-
-                    Console.Write("Inserisci il numero di posti totali: ");
-                    int capienzaEvento = int.Parse(Console.ReadLine());
-
-                    if (capienzaEvento <= 0)
-                    {
-                        throw new Exception("La capienza deve essere positiva");
+                        Console.WriteLine($"Si è verificato un errore: {ex.Message}. Riprova!");
+                        i--;
                     }
                 }
             }
@@ -126,6 +139,7 @@
             {
                 Console.WriteLine($"Si è verificato un errore: {e.Message}");
             }
+
 
         }
     }
